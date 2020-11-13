@@ -1,0 +1,109 @@
+body{
+  background: url(banner.jpg);
+  background-size: cover;
+  font-family:  'Raleway', sans-serif;
+  height: 100vh;
+}
+
+.header{
+  width:100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.header ul{
+  text-align: right;
+}
+
+.header ul li{
+  list-style: none;
+  display: inline-block;
+}
+
+.header ul li a{
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 15px;
+  font-family:  'Raleway', sans-serif;
+  letter-spacing: 2px;
+  font-weight: 600;
+  padding: 15px;
+  transition: all ease 0.5s;
+}
+
+.header ul li a:hover {
+  background-color: #211b4385;
+}
+
+.text, .box{
+  margin-top:  10vh;
+  flex: 1;
+}
+
+.text{
+  margin-left: 10%;
+  font-weight: 200px;
+}
+
+.box{
+  margin-left: 20%;
+}
+
+h1{
+  font-size: 50px;
+  color: #fff;
+  align-content: center;
+  font-weight: 500;
+}
+
+p{
+  font-size: 20px;
+  color: #fff;
+  align-content: center;
+  font-weight: 300;
+}
+
+p a{
+  align-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.form{
+  background: transform;
+  box-sizing: border-box;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+input{
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: none
+  outline: none;
+  font-family:  'Raleway', sans-serif;
+  color: #fff
+}
+
+.username , .password , .firstname, .lastname, .email{
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px;
+  color: #fff;
+}
+
+.button{
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid;
+  color: #fff;
+  font-size: 10px;
+}
+
+.button:hover{
+  background-color: #211b4385
+  color: #000;
+
+}

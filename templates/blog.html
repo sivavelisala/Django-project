@@ -1,0 +1,80 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blog.css' %}">
+
+
+        <title>My Blogs</title>
+
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="">Blogs</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="index">Home</a>
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+              <a class="nav-item nav-link" href="">Hello, {{user.first_name}}</a>
+              <a class="nav-item nav-link" href="logout">LogOut</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {% for post in posts %}
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"> {{post.title}} </h5>
+                <small> {{post.date_posted|date:"F d, Y"}} </small>
+              </div>
+              <p class="mb-1"> {{post.content}} </p>
+              <small>Author: {{post.author}} </small>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Post your blog here</h3>
+            <p class='text'>You can put any information here you'd like.
+              <ul class="list-group">
+                <form action="posts" method="POST">
+                  {% csrf_token %}
+                    <li class="list-group-item list-group-item-light"><input type="text" name="author" placeholder="author name" value=""></li>
+                    <li class="list-group-item list-group-item-light"><input type="text" name="title" placeholder="title" value=""></li>
+                    <li class="list-group-item list-group-item-light"><input type="text" name="content" placeholder="blog content" value=""></li>
+                    <li class="list-group-item list-group-item-light"><input type="submit" value="Post"></li>
+                </form>
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+</body>
+</html>
